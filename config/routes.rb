@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :gyms
+  get 'trainers/signup' => 'trainers#new'
+  get 'clients/signup' => 'clients#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
 
+  resources :gyms
   resources :clients
   resources :trainers
   resources :trainers, only: [:show] do
