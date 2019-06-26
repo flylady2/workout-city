@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :gyms
   resources :clients
   resources :trainers
-  resources :trainers, only: [:show] do
+  resources :trainers, only: [:home] do
     resources :workouts, only: [:new, :create, :edit, :update, :destroy]
     resources :exercises, only: [:new, :create, :edit, :update, :destroy]
   end
