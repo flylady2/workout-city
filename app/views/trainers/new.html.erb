@@ -1,0 +1,13 @@
+<%= form_for @trainer do |f| %>
+   <%= f.label :username %>
+   <%= f.text_field :username %>
+
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+
+   <%= f.label :gym %>
+   <%= f.collection_select :gym_id, Gym.all, :id, :name %>
+
+   <%= f.submit "Create an Account" %>
+
+<% end %>
