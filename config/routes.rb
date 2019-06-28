@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'trainers/signup' => 'trainers#new'
-  get 'clients/signup' => 'clients#new'
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  get 'trainer/signup' => 'trainers#new'
+  get 'client/signup' => 'clients#new'
+  get 'trainer/login' => 'sessions#new_trainer'
+  post 'trainer/login' => 'sessions#create_trainer'
+  get 'client/login' => 'sessions#new_client'
+  post 'client/login' => 'sessions#create_client'
 
   resources :gyms
   resources :clients
