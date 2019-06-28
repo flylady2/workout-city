@@ -5,7 +5,7 @@
    <%= f.label :password %>
    <%= f.password_field :password %>
 
-   <%= f.label :gym %>
+   <%= f.label :gym_id, "Select your gym" %>
    <%= f.collection_select :gym_id, Gym.all, :id, :name %>
 
    <%= f.submit "Create an Account" %>
