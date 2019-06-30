@@ -33,5 +33,10 @@ def create_trainer
       redirect_to 'client/login'
     end
 
+    def destroy
+      session.clear
+      redirect_to '/'
+    end
+
 
 end
