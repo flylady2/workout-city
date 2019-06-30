@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   post 'trainer/login' => 'sessions#create_trainer'
   get 'client/login' => 'sessions#new_client'
   post 'client/login' => 'sessions#create_client'
+  get 'trainers/home' => 'trainers#home'
+
+
 
   resources :gyms
   resources :clients
   resources :trainers
+  get '/trainers/:id/home', to: 'trainers#home'
   resources :trainers, only: [:home] do
     resources :workouts, only: [:new, :create, :edit, :update, :destroy]
     resources :exercises, only: [:new, :create, :edit, :update, :destroy]

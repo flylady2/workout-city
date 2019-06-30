@@ -20,14 +20,15 @@ def create
   #byebug
   if @trainer.save
     session[:user_id] = @trainer.id
-    redirect_to trainer_path(@trainer)
+    redirect_to trainers_home_path(@trainer)
   else
     render :new
   end
 end
 
-def show
-  @trainer = Trainer.find_by(id: params[:id])
+def home
+  #@trainer = Trainer.find_by(id: params[:id])
+  render :home
 end
 
 private
