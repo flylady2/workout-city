@@ -1,0 +1,12 @@
+<h1>Here are all our trainers:</h1>
+
+<ul>
+<% @trainers.each do |trainer| %>
+  <li>
+    <%= link_to trainer.username, trainer_path(trainer) %>
+  </li>
+  <li>
+    <%=trainer.gym.name %>
+  </li>
+<% end %>
+</ul>
