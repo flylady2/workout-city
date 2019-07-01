@@ -9,7 +9,7 @@ class WorkoutsController < ApplicationController
     trainer = Trainer.find_by_id(params[:trainer_id])
     @workout = trainer.workouts.build
       #@workout = trainer.workouts.build
-      byebug
+      #byebug
   end
 
   def create
@@ -18,7 +18,7 @@ class WorkoutsController < ApplicationController
     #byebug
     @workout = @trainer.workouts.build(workout_params)
     @workout.trainer = @trainer
-    byebug
+    #byebug
     if @workout.save
 
       redirect_to workout_path(@workout)
@@ -27,9 +27,13 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def show
+    @workout = Workout.find_by(id: params[:id])
+  end
+
   private
   def workout_params
-    params.require(:workout).permit(:name, :trainer_id, :date)
+    params.require(:workout).permit(:name, :trainer_id, :client_id,:date)
   end
 
 end

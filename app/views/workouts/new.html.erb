@@ -1,12 +1,16 @@
 <%= form_for [@trainer, @workout] do |f| %>
 
  <%= f.hidden_field :trainer_id %>
- 
+
    <%= f.label :name %>
    <%= f.text_field :name %>
 
    <%= f.label :date %>
    <%= f.date_field :date %>
+   <br><br>
+   <%= f.label :client_id, "Select a Client" %>
+   <%= f.collection_select :client_id, Client.all, :id, :username %>
+   <br><br>
 
 
 
