@@ -5,12 +5,26 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    if params[:trainer_id] && trainer = Trainer.find_by_id(params[:trainer_id])
-      @workout = trainer.workouts.build
-    end
+    #byebug
+    trainer = Trainer.find_by_id(params[:trainer_id])
+    @workout = trainer.workouts.build
+      #@workout = trainer.workouts.build
+      byebug
   end
 
   def create
+    #byebug
+    @trainer = Trainer.find_by_id(params[:workout][:trainer_id])
+    #byebug
+    @workout = @trainer.workouts.build(workout_params)
+    @workout.trainer = @trainer
+    byebug
+    if @workout.save
+
+      redirect_to workout_path(@workout)
+    else
+      render :new
+    end
   end
 
   private
