@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :workouts, only: [:new, :create, :edit, :update, :destroy]
     resources :exercises, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :workouts, only: [:index, :show]
+  resources :workouts, only: [:index, :show, :create]
   resources :exercises, only: [:new, :create, :index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
